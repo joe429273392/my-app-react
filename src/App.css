@@ -1,0 +1,24 @@
+input{
+  margin-left: 200px;
+  margin-top :200px;
+  width: 444px;
+  height: 50px;
+}
+
+.btn{
+  width: 58px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.displayBox{
+  width: 1000px;
+}
+
+.items{
+  width: 444px;
+  height: 149px;
+  margin: 10px auto;
+  background-color: #ccc;
+  border-radius: 10px;
+}
