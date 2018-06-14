@@ -1,4 +1,36 @@
-export const doLogin = (username) => ({
+import fetch from 'cross-fetch'
+
+const doLogin = () => ({
   type: 'DO_LOGIN',
-  username: username
 })
+
+const loginSuccess = (state) => ({
+  type: 'LOGIN_SUCCESS',
+  username: state.username
+})
+
+const loginError = () => ({
+  type: 'LOGIN_ERROR',
+})
+
+export function fetchLogin(state) {
+
+  return function(dispatch) {
+    dispatch(doLogin());
+    return fetch('http://localhost:4000/login', {
+      body: JSON.stringify(state),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+    }).then(function(res) {
+      return res.json();
+    }).then(function(rs) {
+      if (rs.status === 0) {
+        dispatch(loginError());
+      } else if (rs.status === 1) {
+        dispatch(loginSuccess(state));
+      } 
+    })
+  }
+}

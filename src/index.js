@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import blogApp from './reducers';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
-let store = createStore(blogApp);
+const loggerMiddleware = createLogger();
+let store = createStore(
+  blogApp,
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+  )
+);
 ReactDOM.render(
   <Provider store={store}>
     <App />
@@ -15,9 +24,4 @@ ReactDOM.render(
 );
 registerServiceWorker();
 
-function showState() {
-  console.log(store.getState());
-}
- 
-store.subscribe(showState);
 
