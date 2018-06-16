@@ -13,6 +13,15 @@ const loginError = () => ({
   type: 'LOGIN_ERROR',
 })
 
+const doFetchData = () => ({
+  type: 'DO_FETCH_DATA',
+})
+
+const getNews = (rs) => ({
+  type: 'GET_NEWS',
+  data: rs
+})
+
 export function fetchLogin(state) {
 
   return function(dispatch) {
@@ -30,7 +39,20 @@ export function fetchLogin(state) {
         dispatch(loginError());
       } else if (rs.status === 1) {
         dispatch(loginSuccess(state));
-      } 
+      }
+    })
+  }
+}
+
+export function fetchNews() {
+
+  return function(dispatch) {
+    dispatch(doFetchData());
+    return fetch('http://localhost:4000/News')
+    .then(function(res) {
+      return res.json();
+    }).then(function(rs) {
+      dispatch(getNews(rs));
     })
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
-import App from './App';
+import AppRoute from './AppRoute';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore, applyMiddleware} from 'redux';
 import blogApp from './reducers';
@@ -18,7 +18,7 @@ let store = createStore(
 );
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppRoute />
   </Provider>, 
   document.getElementById('root')
 );

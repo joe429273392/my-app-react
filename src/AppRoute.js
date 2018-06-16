@@ -3,8 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import IndexPage from './components/Index';
 import Login from './container/Login';
 import Reg from './components/RegPage';
+import './static/css/App.css';
+import './static/css/public.css';
 
-export default class App extends Component {
+export default class AppRoute extends Component {
   render() {
     return (
         <BrowserRouter>

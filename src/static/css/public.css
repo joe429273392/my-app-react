@@ -1,0 +1,36 @@
+.header{
+  padding: 40px 80px 30px;
+}
+
+.footer{
+  padding: 30px 180px;
+  background-color: #3B3B3B;
+  color: #fff;
+}
+
+.footer .footer-title{
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.footer .footer-content{
+  font-size: 12px;
+  color: #999;
+}
+
+.footer .footer-contact{
+  text-align: center;
+  margin: 40px auto 20px;
+  font-size: 12px;
+}
+
+.footer .footer-email{
+  margin-right: 30px;
+}
+
+.red-line{
+  width: 3px;
+  height: 18px;
+  background-color: #EE0000;
+  margin-right: 5px;
+}
