@@ -22,6 +22,16 @@ const getNews = (rs) => ({
   data: rs
 })
 
+const getArticle = (rs) => ({
+  type: 'GET_ARTICLE',
+  data: rs
+})
+
+const getClassification = (rs) => ({
+  type: 'GET_CLASSIFICATION',
+  data: rs
+})
+
 export function fetchLogin(state) {
 
   return function(dispatch) {
@@ -53,6 +63,32 @@ export function fetchNews() {
       return res.json();
     }).then(function(rs) {
       dispatch(getNews(rs));
+    })
+  }
+}
+
+export function fetchArticle() {
+
+  return function(dispatch) {
+    dispatch(doFetchData());
+    return fetch('http://localhost:4000/article')
+    .then(function(res) {
+      return res.json();
+    }).then(function(rs) {
+      dispatch(getArticle(rs));
+    })
+  }
+}
+
+export function fetchClassification() {
+
+  return function(dispatch) {
+    dispatch(doFetchData());
+    return fetch('http://localhost:4000/classification')
+    .then(function(res) {
+      return res.json();
+    }).then(function(rs) {
+      dispatch(getClassification(rs));
     })
   }
 }

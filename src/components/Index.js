@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import News from '../container/News';
-import Article from './Article';
-import Classification from './Classification';
+import Article from '../container/Article';
+import Classification from '../container/Classification';
 import { Link } from 'react-router-dom';
 import '../static/css/index.css'
 

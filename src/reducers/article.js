@@ -1,14 +1,20 @@
 const initialState = {
   articleList: [],
+  isFetching: false
 }
 
 const article = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_ARTICLE': 
+    case 'DO_FETCH_DATA': 
       return {
-        
+        articleList: [],
+        isFetching: true
       };
-    
+    case 'GET_ARTICLE':
+      return {
+        articleList: action.data,
+        isFetching: 'success'
+      }
     default:
       return state;
   }
