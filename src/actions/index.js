@@ -17,6 +17,10 @@ const doFetchData = () => ({
   type: 'DO_FETCH_DATA',
 })
 
+const doSearch = () => ({
+  type: 'DO_SEARCH'
+})
+
 const getNews = (rs) => ({
   type: 'GET_NEWS',
   data: rs
@@ -29,6 +33,11 @@ const getArticle = (rs) => ({
 
 const getClassification = (rs) => ({
   type: 'GET_CLASSIFICATION',
+  data: rs
+})
+
+const getSearchArticle = (rs) => ({
+  type: 'GET_SEARCH_ARTICLE',
   data: rs
 })
 
@@ -90,5 +99,15 @@ export function fetchClassification() {
     }).then(function(rs) {
       dispatch(getClassification(rs));
     })
+  }
+}
+
+export function searchArticle(searchContent) {
+
+  return function(dispatch) {
+    dispatch(doSearch());
+    return fetch('http://localhost:4000/search?s='+searchContent)
+    .then(res => res.json())
+    .then(rs => dispatch(getSearchArticle(rs)));
   }
 }

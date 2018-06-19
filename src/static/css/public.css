@@ -1,7 +1,15 @@
 .header{
   padding: 40px 80px 30px;
+  overflow: hidden;
 }
 
+.header-title{
+  float: left;
+}
+
+.header-title p{
+  color: #999;
+}
 .footer{
   padding: 30px 180px;
   background-color: #3B3B3B;
