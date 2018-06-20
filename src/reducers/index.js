@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { routerReducer } from "react-router-redux";
 import user from './user'
 import news from './news'
 import article from './article'
@@ -10,5 +11,6 @@ export default combineReducers({
   news,
   article,
   classification,
-  search
+  search,
+  router: routerReducer
 })
