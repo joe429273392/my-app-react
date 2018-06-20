@@ -109,7 +109,7 @@ export function searchArticle(searchContent) {
     dispatch(doSearch());
     return fetch('http://localhost:4000/search?s='+searchContent)
     .then(res => res.json())
-    //.then(rs => dispatch(getSearchArticle(rs)));
-    .then(rs => dispatch(push('/login')))
+    .then(rs => dispatch(getSearchArticle(rs)))
+    .then(() => dispatch(push('/login')));
   }
 }
