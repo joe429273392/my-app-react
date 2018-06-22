@@ -15,6 +15,7 @@ class Index extends Component {
     render() {
       return (
         <div className="main">
+        
         <Header />
           <div className="main-container">
             <News />
